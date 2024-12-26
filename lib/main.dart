@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'HomePage/Homepage.dart';
+import 'categories.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,9 +19,11 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: 'homepage', // Set the default route
+      initialRoute: 'CategoriesPage', // Set the default route
       routes: {
         'homepage': (context) => const MyHomePage(title: 'News'),
+        'CategoriesPage': (context) => CategoriesPage(),
+
       },
     );
   }
