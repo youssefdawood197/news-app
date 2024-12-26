@@ -25,7 +25,7 @@ class CategoryBox extends StatelessWidget {
         );
       },
       child: Container(
-        height: 150, // Adjust height as needed
+        height: 150,
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12), // Rounded corners
