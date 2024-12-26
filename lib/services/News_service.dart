@@ -1,16 +1,16 @@
 import 'dart:convert';
 import 'package:news_app/Models/Article_model.dart';
 import 'package:http/http.dart' as http;
-
 import '../Models/Articles.dart';
 
 class NewsApi {
   final String apiKey = '4a3b0651a7b84dbba4fe517a4348993d';
-
+  String? title;
+  NewsApi({this.title});
   Future<List<Article>> fetchArticles() async {
     try {
       final uri = Uri.parse(
-          'https://newsapi.org/v2/top-headlines?country=us&apiKey=$apiKey');
+          'https://newsapi.org/v2/top-headlines?country=us&category=$title&apiKey=$apiKey');
       final response = await http.get(uri);
 
       if (response.statusCode == 200) {

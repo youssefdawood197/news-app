@@ -4,9 +4,11 @@ import '../Models/Article_model.dart';
 import '../services/News_service.dart'; // Update with the correct path to your NewsApi class
 
 class MyHomePage extends StatefulWidget {
+  final String title;
+
   const MyHomePage({super.key, required this.title});
 
-  final String title;
+
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -18,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    articlesFuture = NewsApi().fetchArticles(); // Properly initialize the future
+    articlesFuture = NewsApi(title: widget.title).fetchArticles(); // Properly initialize the future
   }
 
   @override
@@ -41,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: const Icon(Icons.refresh),
             onPressed: () {
               setState(() {
-                articlesFuture = NewsApi().fetchArticles(); // Refresh articles
+                articlesFuture = NewsApi(title: widget.title).fetchArticles(); // Refresh articles
               });
             },
           ),
