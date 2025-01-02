@@ -35,7 +35,6 @@ class _MyHomePageState extends State<MyHomePage> {
             fontFamily: 'Roboto', // Update to any font available in your project
           ),
         ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
         centerTitle: true, // Centers the title in the app bar
         elevation: 4, // Adds slight shadow
         actions: [
