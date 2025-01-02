@@ -40,6 +40,10 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(
         scaffoldBackgroundColor:Color(0xff1a1a1a),
+        bottomSheetTheme: BottomSheetThemeData(
+
+
+        ),
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.black,
           titleTextStyle: TextStyle(

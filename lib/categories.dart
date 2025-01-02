@@ -52,30 +52,40 @@ class CategoriesPage extends StatelessWidget {
       showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                leading: const Icon(Icons.light_mode),
-                title: const Text("Light"),
-                onTap: () {
-                  Navigator.pop(context);
-                  Themeprov.changeTheme(ThemeMode.light);
-                  print("Light theme selected.");
-                  // Call your custom function here for Light theme
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.dark_mode),
-                title: const Text("Dark"),
-                onTap: () {
-                  Navigator.pop(context);
-                  Themeprov.changeTheme(ThemeMode.dark);
-                  print("Dark theme selected.");
-                  // Call your custom function here for Dark theme
-                },
-              ),
-            ],
+          return Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary
+            ),
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 50),
+            child: Column(
+              
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  leading: Icon(Icons.light_mode,color: Theme.of(context).colorScheme.secondary,),
+                  title: Text("Light",style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary
+                  ),),                  onTap: () {
+                    Navigator.pop(context);
+                    Themeprov.changeTheme(ThemeMode.light);
+                    print("Light theme selected.");
+                    // Call your custom function here for Light theme
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.dark_mode,color: Theme.of(context).colorScheme.secondary,),
+                  title: Text("Dark",style: TextStyle(
+                    color: Theme.of(context).colorScheme.secondary
+                  ),),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Themeprov.changeTheme(ThemeMode.dark);
+                    print("Dark theme selected.");
+                    // Call your custom function here for Dark theme
+                  },
+                ),
+              ],
+            ),
           );
         },
       );
@@ -83,7 +93,7 @@ class CategoriesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Categories',
           style: TextStyle(
             fontSize: 22,
@@ -98,7 +108,7 @@ class CategoriesPage extends StatelessWidget {
         children: [
           Expanded(
             child: ListView.builder(
-              padding: const EdgeInsets.all(8),
+              padding: EdgeInsets.all(8),
               itemCount: categories.length,
               itemBuilder: (context, index) {
                 final category = categories[index];
@@ -110,12 +120,17 @@ class CategoriesPage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(25.0),
             child: ElevatedButton(
               onPressed: () {
                 showThemeOptions(context);
               },
-              child: const Text("Change Theme"),
+              style: ButtonStyle(
+
+              ),
+              child:Text("Change Theme", style: TextStyle(
+                color: Theme.of(context).colorScheme.primary
+              ),),
             ),
           ),
         ],
